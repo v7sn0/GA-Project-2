@@ -8,7 +8,7 @@
 
 ***
 ### Description ###
-A website that allows users to review phones and share their review, and comment on others reviews.
+A website that allows users to review phones and share their review.
 
 ***
 
