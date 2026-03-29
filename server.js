@@ -6,9 +6,12 @@ const session = require("express-session")
 const { MongoStore } = require("connect-mongo")
 const app = express()
 const path = require("path")
+const userRouter = require("./routes/userRouter.js")
 
 const dns = require("dns")
 dns.setServers(["8.8.8.8", "1.1.1.1"])
+
+const db = require("./db")
 
 const PORT = process.env.PORT ? process.env.PORT : 3000
 
@@ -31,6 +34,8 @@ app.use(
 app.get("/", (req, res) => {
   res.send("working")
 })
+
+app.use("/user", userRouter)
 
 app.listen(PORT, () => {
   console.log("this app works on port " + PORT + " . . . ")
