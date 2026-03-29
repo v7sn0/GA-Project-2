@@ -34,6 +34,10 @@ A website that allows users to review phones and share their review.
 #### Home page ####
 ![Home page](./pics/wireframe-p2-home.drawio.png)
 
+
+#### ER Diagram ####
+![ERD](./pics/project2-erd.drawio.png)
+
 ***
 
 ### Task List ###
