@@ -6,6 +6,7 @@ const session = require("express-session")
 const { MongoStore } = require("connect-mongo")
 const app = express()
 const path = require("path")
+const authRouter = require("./routes/authRouter.js")
 const userRouter = require("./routes/userRouter.js")
 
 const dns = require("dns")
@@ -36,6 +37,7 @@ app.get("/", (req, res) => {
 })
 
 app.use("/user", userRouter)
+app.use("/auth", authRouter)
 
 app.listen(PORT, () => {
   console.log("this app works on port " + PORT + " . . . ")
