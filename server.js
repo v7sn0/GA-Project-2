@@ -8,6 +8,7 @@ const app = express()
 const path = require("path")
 const authRouter = require("./routes/authRouter.js")
 const userRouter = require("./routes/userRouter.js")
+const reviewRouter = require("./routes/reviewRouter.js")
 
 const dns = require("dns")
 dns.setServers(["8.8.8.8", "1.1.1.1"])
@@ -38,6 +39,7 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRouter)
 app.use("/auth", authRouter)
+app.use("/review", reviewRouter)
 
 app.listen(PORT, () => {
   console.log("this app works on port " + PORT + " . . . ")
