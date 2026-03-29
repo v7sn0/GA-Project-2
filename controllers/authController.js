@@ -1,23 +1,25 @@
 const User = require("../models/User.js")
 const bcrypt = require("bcrypt")
 
-const signUpController = (req, res) => {
+const signUpController = async (req, res) => {
   try {
-    /* if (!req.body.password === req.body.confirmPassword) {
+    //---------------------------------------------------
+    if (!req.body.password === req.body.confirmPassword) {
       return res.send("wrong pass")
     }
-
+    //---_to be completed nd tested when EJS part reached
     const hashedPass = await bcrypt.hash(req.body.password, 12)
 
-    User.create({
+    await User.create({
       username: req.body.username,
       password: hashedPass,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
-    }) */
+    })
 
-    const user = User.create(req.body)
-    res.send("signed up")
+    res.send("Account created")
+    /* const user = User.create(req.body)
+    res.send("signed up") */
   } catch (error) {
     res.send("wrong")
   }
