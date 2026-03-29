@@ -1,0 +1,6 @@
+const express = require("express")
+const router = express.Router()
+
+router.get("/sign-in", userController.signInController)
+
+module.exports = router
