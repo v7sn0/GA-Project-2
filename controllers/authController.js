@@ -7,7 +7,7 @@ const signUpController = async (req, res) => {
     if (!req.body.password === req.body.confirmPassword) {
       return res.send("wrong pass")
     }
-    //---_to be completed nd tested when EJS part reached
+    //----to be completed nd tested when EJS part reached
     const hashedPass = await bcrypt.hash(req.body.password, 12)
 
     await User.create({
@@ -21,20 +21,40 @@ const signUpController = async (req, res) => {
     /* const user = User.create(req.body)
     res.send("signed up") */
   } catch (error) {
-    res.send("wrong")
+    res.send("Error happened during the sign up")
   }
 }
 
 const signInController = async (req, res) => {
   try {
     const user = await User.findOne({ username: req.body.username })
-    if (user) {
-      res.send("found")
-    } else {
-      res.send("not found")
+    // console.log(user)
+
+    // -----------------------------
+    /* if (user) {
+      return res.send("found")
+    } */
+    //--to be completed when EJS part reached
+
+    const validPassword = await bcrypt.compare(req.body.password, user.password)
+
+    /* console.log(req.body.password)
+    console.log(user.password) */
+
+    if (!validPassword) {
+      return res.send("wrong pass")
     }
+
+    req.session.user = {
+      email: user.username,
+      _id: user._id,
+    }
+
+    req.session.save(() => {
+      res.send("logged in")
+    })
   } catch (error) {
-    res.send("wrong pass/user")
+    res.send("Error happened during the sign in")
   }
 }
 
