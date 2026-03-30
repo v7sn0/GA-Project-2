@@ -27,8 +27,18 @@ const reviewAll = async (req, res) => {
   }
 }
 
+const editReview = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body)
+    res.send(review)
+  } catch (error) {
+    res.send("An error occured when editing reviews.")
+  }
+}
+
 module.exports = {
   addReview,
   showSingleReview,
   reviewAll,
+  editReview,
 }
