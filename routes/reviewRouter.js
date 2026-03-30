@@ -3,5 +3,7 @@ const router = express.Router()
 const reviewController = require("../controllers/reviewController.js")
 
 router.post("/addReview", reviewController.addReview)
+router.get("/reviewAll", reviewController.reviewAll)
 router.get("/:id", reviewController.showSingleReview)
+
 module.exports = router
