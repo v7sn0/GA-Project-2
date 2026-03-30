@@ -17,7 +17,7 @@ const signUpController = async (req, res) => {
       lastName: req.body.lastName,
     })
 
-    res.send("Account created")
+    res.render()
     /* const user = User.create(req.body)
     res.send("signed up") */
   } catch (error) {
