@@ -18,7 +18,17 @@ const showSingleReview = async (req, res) => {
     res.send("An error occured when finding ID review.")
   }
 }
+const reviewAll = async (req, res) => {
+  try {
+    const reviews = await Review.find({})
+    res.send(reviews)
+  } catch (error) {
+    res.send("An error occured when finding reviews.")
+  }
+}
+
 module.exports = {
   addReview,
   showSingleReview,
+  reviewAll,
 }
