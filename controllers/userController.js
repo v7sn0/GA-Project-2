@@ -1,4 +1,5 @@
 const User = require("../models/User.js")
+const Review = require("../models/Review.js")
 
 const showProfile = async (req, res) => {
   try {
@@ -8,6 +9,7 @@ const showProfile = async (req, res) => {
     res.send("An error occured when finding User.")
   }
 }
+
 module.exports = {
   showProfile,
 }
