@@ -32,7 +32,16 @@ const editReview = async (req, res) => {
     const review = await Review.findByIdAndUpdate(req.params.id, req.body)
     res.send(review)
   } catch (error) {
-    res.send("An error occured when editing reviews.")
+    res.send("An error occured when editing review.")
+  }
+}
+
+const deleteReview = async (req, res) => {
+  try {
+    const review = await Review.findByIdAndDelete(req.params.id)
+    res.send(review)
+  } catch (error) {
+    res.send("An error occured when deleting a review.")
   }
 }
 
@@ -41,4 +50,5 @@ module.exports = {
   showSingleReview,
   reviewAll,
   editReview,
+  deleteReview,
 }
