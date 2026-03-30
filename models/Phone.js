@@ -9,11 +9,6 @@ const phoneSchema = new mongoose.Schema(
     cpu: { type: String, required: true },
     memory: { type: Number, required: false },
     storage: { type: Number, required: true },
-    /* phone: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Phone",
-      required: true,
-    },  should be moved to Review.js */
   },
   {
     timestamps: true,
