@@ -10,7 +10,15 @@ const addReview = async (req, res) => {
     res.send("An error occured when creating a review.")
   }
 }
-
+const showSingleReview = async (req, res) => {
+  try {
+    const review = await Review.findById(req.params.id)
+    res.send(review)
+  } catch (error) {
+    res.send("An error occured when finding ID review.")
+  }
+}
 module.exports = {
   addReview,
+  showSingleReview,
 }
