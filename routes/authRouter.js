@@ -7,6 +7,10 @@ router.get("/signup", (req, res) => {
   res.render("../views/auth/signup.ejs")
 })
 
+router.get("/signin", (req, res) => {
+  res.render("../views/auth/signin.ejs")
+})
+
 router.post("/signup", authController.signUpController)
 router.post("/signin", authController.signInController)
 
