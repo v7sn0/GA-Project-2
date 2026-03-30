@@ -1,12 +1,13 @@
 const Phone = require("../models/Phone.js")
 const Review = require("../models/Review.js")
+const User = require("../models/User.js")
 
-const addReview = (req, res) => {
+const addReview = async (req, res) => {
   try {
-    Review.create(req.body)
-    res.send("hhss")
+    const review = await Review.create(req.body)
+    res.send(review)
   } catch (error) {
-    res.send("Wrong")
+    res.send("An error occured when creating a review.")
   }
 }
 
