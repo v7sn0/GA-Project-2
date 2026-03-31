@@ -2,14 +2,25 @@ const Phone = require("../models/Phone.js")
 const Review = require("../models/Review.js")
 const User = require("../models/User.js")
 
+const populatePhoneField = async (req, res) => {
+  try {
+    const phones = await Phone.find({})
+    res.render("./reviews/newReview.ejs", { phones })
+  } catch (error) {
+    res.send("An error occured when populating the phone field.")
+  }
+}
+
 const addReview = async (req, res) => {
   try {
     const review = await Review.create(req.body)
+    console.log(review._id)
     res.redirect(`/review/${review._id}`)
   } catch (error) {
-    res.send("An error occured when creating a review.")
+    res.send("An error occured when creating a review." + error)
   }
 }
+
 const showSingleReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id).populate("reviewer")
@@ -53,4 +64,5 @@ module.exports = {
   reviewAll,
   editReview,
   deleteReview,
+  populatePhoneField,
 }
