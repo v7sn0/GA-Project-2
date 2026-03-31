@@ -1,0 +1,15 @@
+<%- include ("../partials/header.ejs") %>
+
+<h2>All Reviews</h2>
+
+<% reviews.forEach(review => { %>
+
+  <ul>
+
+    <li> <a href="/reviews/<%=review._id%>"><%= review.title %> , <%= review.reviewer %></a> </li>
+
+  </ul>
+
+<% }) %>
+
+<%- include ("../partials/footer.ejs") %>

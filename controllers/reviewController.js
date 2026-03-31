@@ -21,8 +21,10 @@ const showSingleReview = async (req, res) => {
 const reviewAll = async (req, res) => {
   try {
     const reviews = await Review.find({})
-    console.log(reviews)
-    res.json(reviews)
+    /* console.log(reviews)
+    res.json(reviews) */
+
+    res.render("./reviews/allReviews.ejs", { reviews })
   } catch (error) {
     res.send("An error occured when finding reviews.")
   }

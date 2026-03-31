@@ -35,14 +35,14 @@ app.use(
   })
 )
 
-app.get("/", (req, res) => {
-  res.send("working")
-})
-
 app.use(middleware.passUserToView)
 app.use("/user", userRouter)
 app.use("/auth", authRouter)
 app.use("/review", reviewRouter)
+
+app.get("/", (req, res) => {
+  res.render("index.ejs")
+})
 
 app.listen(PORT, () => {
   console.log("this app works on port " + PORT + " . . . ")
