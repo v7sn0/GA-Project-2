@@ -6,4 +6,17 @@
 <p><%= review.rating %></p>
 <p><%= review.reviewer.username %></p>
 
+<% if (user._id === review.reviewer._id.toString()) { %>
+
+<form action="/review/<%= review._id %>/edit">
+  <button>Edit</button>
+</form>
+
+<form action="/review/<%= review._id %>?_method=DELETE" method="POST">
+  <button type="submit">Delete</button>
+</form>
+
+<% } %>
+
+
 <%- include ("../partials/footer.ejs") %>
