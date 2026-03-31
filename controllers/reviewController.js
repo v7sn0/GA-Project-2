@@ -13,7 +13,7 @@ const addReview = async (req, res) => {
 const showSingleReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id)
-    res.send(review)
+    res.render("../views/reviews/showSingleReview.ejs", { review })
   } catch (error) {
     res.send("An error occured when finding ID review.")
   }
