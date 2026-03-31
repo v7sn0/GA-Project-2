@@ -15,6 +15,8 @@ dns.setServers(["8.8.8.8", "1.1.1.1"])
 
 const db = require("./db")
 
+const middleware = require("./middleware")
+
 const PORT = process.env.PORT ? process.env.PORT : 3000
 
 app.use(express.json())
@@ -37,6 +39,7 @@ app.get("/", (req, res) => {
   res.send("working")
 })
 
+app.use(middleware.passUserToView)
 app.use("/user", userRouter)
 app.use("/auth", authRouter)
 app.use("/review", reviewRouter)

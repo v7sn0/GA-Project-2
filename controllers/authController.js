@@ -51,7 +51,7 @@ const signInController = async (req, res) => {
     }
 
     req.session.save(() => {
-      res.send("logged in")
+      res.render("../views/auth/test.ejs")
     })
   } catch (error) {
     res.send("Error happened during the sign in")
