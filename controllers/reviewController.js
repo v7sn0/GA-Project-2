@@ -5,7 +5,7 @@ const User = require("../models/User.js")
 const addReview = async (req, res) => {
   try {
     const review = await Review.create(req.body)
-    res.redirect(`/reviews/${review._id}`)
+    res.redirect(`/review/${review._id}`)
   } catch (error) {
     res.send("An error occured when creating a review.")
   }
@@ -13,7 +13,8 @@ const addReview = async (req, res) => {
 const showSingleReview = async (req, res) => {
   try {
     const review = await Review.findById(req.params.id).populate("reviewer")
-    res.render("../views/reviews/showSingleReview.ejs", { review })
+    const phone = await Phone.findById(review.phone)
+    res.render("../views/reviews/showSingleReview.ejs", { review, phone })
   } catch (error) {
     res.send("An error occured when finding ID review.")
   }
