@@ -1,15 +1,21 @@
 const express = require("express")
 const router = express.Router()
 const reviewController = require("../controllers/reviewController.js")
-
+const Review = require("../models/Review")
+const Phone = require("../models/Phone.js")
 router.post("/", reviewController.addReview)
 router.get("/allReviews", reviewController.reviewAll)
 //router.post("/addReview", reviewController.addReview)
-router.get("/addReview", reviewController.populatePhoneField)
+// router.get("/addReview", reviewController.populatePhoneField)
 
 /* router.get("/addReview", (req, res) => {
-  res.render("./reviews/newReview.ejs")
+  res.render("./reviews/newReview.ejs")
 }) */
+router.get("/:id/edit", async (req, res) => {
+  const review = await Review.findById(req.params.id)
+  const phones = await Phone.find({})
+  res.render("./reviews/editReview.ejs", { review, phones })
+})
 router.get("/:id", reviewController.showSingleReview)
 
 router.put("/:id", reviewController.editReview)
