@@ -1,0 +1,16 @@
+<%- include ("../partials/header.ejs") %>
+
+<h2>Edit Review</h2>
+
+<form action="/review" method="post">
+  <input type="text" name="title" placeholder="Title" required />
+  <textarea name="paragraph" placeholder="Description" required></textarea>
+  <input type="number" name="rating" placeholder="Rating" required />
+  <select name="phone">
+<% phones.forEach(phone => { %>
+<option value="<%= phone._id %>"><%= phone.name %></option>
+<% }) %>
+</select>
+  <button type="submit">Edit</button>
+</form>
+<%- include ("../partials/footer.ejs")%>
