@@ -31,9 +31,9 @@ const signInController = async (req, res) => {
     // console.log(user)
 
     // -----------------------------
-    /* if (user) {
-      return res.send("found")
-    } */
+    if (!user) {
+      return res.send("user not found")
+    }
     //--to be completed when EJS part reached
 
     const validPassword = await bcrypt.compare(req.body.password, user.password)
