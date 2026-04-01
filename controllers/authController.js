@@ -4,7 +4,12 @@ const bcrypt = require("bcrypt")
 const signUpController = async (req, res) => {
   try {
     //---------------------------------------------------
-    if (!req.body.password === req.body.confirmPassword) {
+    const userInDatabase = await User.exists({ username: req.body.username })
+    if (userInDatabase) {
+      return res.send("Username taken.")
+    }
+
+    if (req.body.password !== req.body.confirmPassword) {
       return res.send("wrong pass")
     }
     //----to be completed nd tested when EJS part reached
@@ -31,9 +36,9 @@ const signInController = async (req, res) => {
     // console.log(user)
 
     // -----------------------------
-    /* if (user) {
-      return res.send("found")
-    } */
+    if (!user) {
+      return res.send("user not found")
+    }
     //--to be completed when EJS part reached
 
     const validPassword = await bcrypt.compare(req.body.password, user.password)
