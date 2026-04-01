@@ -7,11 +7,13 @@
 
 <% reviews.forEach(review => { %>
 
-  <ul>
 
-    <li> <a href="/review/<%=review._id%>"><%= review.title %> , <%= review.reviewer.username %></a> </li>
 
-  </ul>
+    <div> <a href="/review/<%=review._id%>"><%= review.title %> , <%= review.reviewer.username %></a>
+
+    </div>
+
+
 <% }) %>
 
 

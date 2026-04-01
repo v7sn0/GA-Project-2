@@ -9,6 +9,7 @@ const phoneSchema = new mongoose.Schema(
     cpu: { type: String, required: true },
     memory: { type: Number, required: false },
     storage: { type: Number, required: true },
+    img: { type: String, required: false },
   },
   {
     timestamps: true,
