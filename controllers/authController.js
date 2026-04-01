@@ -99,7 +99,7 @@ const updatePassword = async (req, res) => {
     await user.save()
 
     // res.send("Password updated successfully")
-    res.redirect("../views/users/profile.ejs")
+    res.render("../views/auth/confirm.ejs")
   } catch (error) {
     console.error("Error in updating password ", error.message)
   }
