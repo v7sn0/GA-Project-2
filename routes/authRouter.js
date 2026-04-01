@@ -14,6 +14,10 @@ router.get("/signin", (req, res) => {
 router.post("/signup", authController.signUpController)
 router.post("/signin", authController.signInController)
 // ^^ signInController need to be changed to signIn, also the signUp
+router.put("/:id", authController.updatePassword)
+router.get("/:id/updatePassword", (req, res) => {
+  res.render("./auth/updatePassword.ejs")
+})
 
 router.get("/signout", authController.signOut)
 
