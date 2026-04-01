@@ -44,7 +44,7 @@ const editReview = async (req, res) => {
 const deleteReview = async (req, res) => {
   try {
     const review = await Review.findByIdAndDelete(req.params.id)
-    res.send(review)
+    res.redirect("/review/allReviews")
   } catch (error) {
     res.send("An error occured when deleting a review.")
   }

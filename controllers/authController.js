@@ -59,7 +59,18 @@ const signInController = async (req, res) => {
   }
 }
 
+const signOut = (req, res) => {
+  try {
+    req.session.destroy(() => {
+      res.redirect("/")
+    })
+  } catch (error) {
+    res.send("Error happened during the sign out")
+  }
+}
+
 module.exports = {
   signUpController,
   signInController,
+  signOut,
 }
