@@ -11,7 +11,7 @@ const showProfile = async (req, res) => {
       lastName: user.last,
       reviews: review,
     }
-    res.render("../views/users/profile.ejs")
+    res.render("../views/users/profile.ejs", { user: data })
   } catch (error) {
     res.send("An error occured when finding User.")
   }
