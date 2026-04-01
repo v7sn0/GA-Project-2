@@ -2,13 +2,17 @@
 
 <h2>Edit Review</h2>
 
-<form action="/review" method="post">
-  <input type="text" name="title" placeholder="Title" required />
-  <textarea name="paragraph" placeholder="Description" required></textarea>
-  <input type="number" name="rating" placeholder="Rating" required />
+<form action="/review/<%= review._id %>?_method=PUT" method="POST">
+  <input type="text" name="title" placeholder="Title" value="<%= review.title %>" required />
+  <textarea name="paragraph" placeholder="Description" required><%= review.paragraph %></textarea>
+  <input type="number" name="rating" placeholder="Rating" value="<%= review.rating %>" required />
   <select name="phone">
 <% phones.forEach(phone => { %>
+  <% if (phone._id.toString() === review.phone._id.toString()) { %>
+<option value="<%= phone._id %>" selected><%= phone.name %></option>
+    <% } else { %>
 <option value="<%= phone._id %>"><%= phone.name %></option>
+    <% } %>
 <% }) %>
 </select>
   <button type="submit">Edit</button>

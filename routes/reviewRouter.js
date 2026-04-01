@@ -8,9 +8,11 @@ router.get("/allReviews", reviewController.reviewAll)
 //router.post("/addReview", reviewController.addReview)
 // router.get("/addReview", reviewController.populatePhoneField)
 
-/* router.get("/addReview", (req, res) => {
-  res.render("./reviews/newReview.ejs")
-}) */
+router.get("/addReview", async (req, res) => {
+  const phones = await Phone.find({})
+  res.render("./reviews/newReview.ejs", { phones })
+})
+
 router.get("/:id/edit", async (req, res) => {
   const review = await Review.findById(req.params.id)
   const phones = await Phone.find({})
