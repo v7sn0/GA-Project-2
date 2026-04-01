@@ -22,7 +22,7 @@ const signUpController = async (req, res) => {
       lastName: req.body.lastName,
     })
 
-    res.send("signed up")
+    res.redirect("/auth/signin")
     /* const user = User.create(req.body)
     res.send("signed up") */
   } catch (error) {
@@ -57,7 +57,7 @@ const signInController = async (req, res) => {
 
     req.session.save(() => {
       // res.render("../views/reviews/allReviews.ejs")
-      res.redirect("/")
+      res.redirect("/review/allReviews")
     })
   } catch (error) {
     res.send("Error happened during the sign in")

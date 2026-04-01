@@ -22,6 +22,8 @@ const showSingleReview = async (req, res) => {
 const reviewAll = async (req, res) => {
   try {
     const reviews = await Review.find({}).populate("reviewer")
+    const phone = await Phone.find({})
+    console.log(phone)
     console.log(reviews)
 
     res.render("./reviews/allReviews.ejs", { reviews })
