@@ -39,6 +39,7 @@ app.use(middleware.passUserToView)
 app.use("/user", userRouter)
 app.use("/auth", authRouter)
 app.use("/review", reviewRouter)
+app.use(express.static("public"))
 
 app.get("/", (req, res) => {
   res.render("index.ejs")
