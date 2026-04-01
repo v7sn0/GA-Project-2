@@ -1,0 +1,17 @@
+<%- include ("../partials/header.ejs") %>
+
+<h2><%= user.firstName %> <%= user.lastName %> Profile </h2>
+
+
+<div>
+  <a href=<%= `/auth/${user._id}/updatePassword` %>>Update Password</a>
+</div>
+
+<h3>Reviews:</h3>
+<ul>
+  <% user.reviews.forEach(review => { %>
+    <li><a href="/review/<%= review._id %>"><%= review.title %></a></li>
+  <% }) %>
+</ul>
+
+<%- include ("../partials/footer.ejs")%>
