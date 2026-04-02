@@ -2,16 +2,16 @@
 
 <h2>All Reviews</h2>
 
-<a href="/review/addReview">create</a>
+<a href="/review/addReview" class="view-btn">Create</a>
 
 
 <% reviews.forEach(review => { %>
 
 
-
-    <div> <a href="/review/<%=review._id%>"><%= review.title %> , <%= review.reviewer.username %></a>
-
-    </div>
+<div class="container">
+    <a href="/review/<%=review._id%>"><div class="review-card"> <%= review.title %>, by <%= review.reviewer.username %>
+    </div></a>
+</div>
 
 
 <% }) %>

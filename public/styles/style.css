@@ -1,221 +1,141 @@
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: system-ui;
 }
-
-html,
-body {
-  min-height: 100%;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #eef4ff, #f8fbff);
-  color: #1f2a44;
-  line-height: 1.6;
-}
-
-main {
-  width: 90%;
-  max-width: 900px;
-  margin: 40px auto;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(31, 42, 68, 0.08);
-}
-
 nav {
-  background: #1e3a8a;
-  padding: 18px 30px;
+  background-color: rgb(17, 49, 131);
+  width: 100%;
+  padding: 17px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 nav a {
-  text-decoration: none;
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.12);
-  padding: 10px 18px;
-  border-radius: 10px;
-  font-weight: bold;
-  transition: 0.25s ease;
+  font-size: 17px;
+  color: rgb(200, 200, 200);
 }
 
-nav a:hover {
-  background: #ffffff;
-  color: #1e3a8a;
-  transform: translateY(-2px);
+#first-msg {
+  margin-top: 23%;
+  text-align: center;
+  font-size: 35px;
 }
 
-h1,
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.review-card {
+  border-radius: 5px;
+  width: 100%;
+  height: 160px;
+  margin: 15px auto;
+  background-color: rgb(57, 57, 136);
+  text-align: center;
+  padding-top: 20px;
+  color: rgb(230, 230, 230);
+}
+
+.view-btn {
+  display: block;
+  width: max-content;
+  height: 20px;
+  padding: 5px 20px;
+  margin: 17px auto;
+  border: none;
+  background-color: rgb(66, 91, 150);
+  border-radius: 5px;
+  color: rgb(230, 230, 230);
+}
+
 h2,
 h3 {
-  color: #1e3a8a;
-  margin-bottom: 18px;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  margin-top: 25px;
-}
-
-p {
-  margin-bottom: 14px;
-  color: #334155;
+  text-align: center;
+  margin-top: 70px;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+  text-align: center;
   margin-top: 20px;
 }
 
-input,
-textarea,
-select {
-  width: 100%;
-  padding: 14px 16px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  font-size: 1rem;
-  background: #f8fafc;
-  color: #1f2937;
-  outline: none;
-  transition: 0.25s ease;
-}
-
-input:focus,
-textarea:focus,
-select:focus {
-  border-color: #3b82f6;
-  background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
-}
-
-textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-select {
-  cursor: pointer;
-}
-
-button {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: white;
-  border: none;
-  padding: 14px 20px;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.25s ease;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
-}
-
-button:active {
-  transform: translateY(0);
-}
-
-main a {
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-main a:hover {
-  text-decoration: underline;
-}
-
-main > div {
-  margin-bottom: 14px;
-}
-
-main > div a {
+.form-input {
   display: block;
-  background: #f8fbff;
-  border: 1px solid #dbeafe;
-  padding: 14px 16px;
-  border-radius: 12px;
-  transition: 0.25s ease;
+  margin: 20px auto;
+  width: 50%;
 }
 
-main > div a:hover {
-  background: #eff6ff;
-  border-color: #93c5fd;
-  text-decoration: none;
-  transform: translateY(-2px);
+form input[type="text"],
+form input[type="select"],
+form input[type="number"],
+form input[type="password"] {
+  height: 40px;
+  border-radius: 5px;
+  padding: 3px;
 }
 
-form[action*="edit"],
-form[action*="_method=DELETE"] {
-  margin-top: 12px;
+.form-btn {
+  display: block;
+  width: max-content;
+  height: 30px;
+  padding: 5px 20px;
+  margin: 17px auto;
+  border: none;
+  background-color: rgb(66, 91, 150);
+  color: rgb(230, 230, 230);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-main p:first-of-type {
-  font-size: 1.05rem;
+.auth-forms {
+  border: black solid 2px;
+  border-radius: 5px;
+  width: 450px;
+  margin: 2% auto;
+  padding: 20px 0;
 }
 
-footer {
+.specs {
   text-align: center;
-  padding: 20px;
-  color: #64748b;
-}
-
-body > form {
+  display: flex;
+  flex-wrap: wrap;
   width: 90%;
-  max-width: 450px;
-  margin: 80px auto;
-  background: #ffffff;
-  padding: 30px;
-  border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(31, 42, 68, 0.08);
+  justify-content: center;
+  margin: 0 auto;
 }
 
-body > form button {
-  width: 100%;
+.spec {
+  margin: 20px;
 }
 
-@media (max-width: 768px) {
-  main {
-    width: 94%;
-    margin: 20px auto;
-    padding: 20px;
-  }
+.review {
+  margin-top: 40px;
+  text-align: center;
+}
 
-  nav {
-    padding: 16px;
-    gap: 10px;
-  }
+.review h3,
+.review h4 {
+  margin-bottom: 15px;
+}
 
-  nav a {
-    width: 100%;
-    text-align: center;
-  }
+.review p {
+  margin-bottom: 40px;
+}
 
-  h2 {
-    font-size: 1.6rem;
-  }
+#edit {
+  background-color: rgb(66, 91, 150);
+  color: rgb(230, 230, 230);
+}
 
-  input,
-  textarea,
-  select,
-  button {
-    font-size: 0.95rem;
-  }
+#delete {
+  background-color: rgb(143, 7, 7);
+  color: rgb(230, 230, 230);
 }

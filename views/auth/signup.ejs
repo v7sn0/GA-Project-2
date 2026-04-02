@@ -7,17 +7,57 @@
     <link rel="stylesheet" href="/styles/style.css" />
   </head>
   <body>
-    <form action="/auth/signup" method="POST">
-      <input type="text" name="username" placeholder="Username" />
-      <input type="password" name="password" placeholder="Password" />
+    <form action="/auth/signup" method="POST" class="auth-forms">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        name="username"
+        placeholder="Username"
+        class="form-input"
+        id="username"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        class="form-input"
+        id="password"
+        required
+      />
+
+      <label for="confirmPassword">Confirm password</label>
       <input
         type="password"
         name="confirmPassword"
         placeholder="confirm password"
+        class="form-input"
+        id="confirmPassword"
+        required
       />
-      <input type="text" name="firstName" placeholder="first name" />
-      <input type="text" name="lastName" placeholder="last name" />
-      <button type="submit">Sign up</button>
+
+      <label for="firstName">First name</label>
+      <input
+        type="text"
+        name="firstName"
+        placeholder="first name"
+        class="form-input"
+        id="firstName"
+        required
+      />
+
+      <label for="lastName">Last name</label>
+      <input
+        type="text"
+        name="lastName"
+        placeholder="last name"
+        class="form-input"
+        id="lastName"
+        required
+      />
+      <button type="submit" class="form-btn">Sign up</button>
     </form>
   </body>
 </html>

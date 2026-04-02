@@ -7,9 +7,14 @@
   <link rel="stylesheet" href="/styles/style.css" />
 </head>
 <body>
-<form action="/auth/signin" method="POST">
-      <input type="text" name="username" placeholder="Username" />
-      <input type="password" name="password" placeholder="Password" />
-      <button type="submit">Sign in</button>
+
+<form action="/auth/signin" method="POST" class="auth-forms">
+
+  <label for="username">Username</label>
+      <input type="text" name="username" placeholder="Username" class="form-input username" id="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" name="password" placeholder="Password" class="form-input" id="password" required />
+      <button type="submit" class="form-btn">Sign in</button>
 </body>
 </html>

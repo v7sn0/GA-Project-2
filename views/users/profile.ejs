@@ -4,14 +4,15 @@
 
 
 <div>
-  <a href=<%= `/auth/${user._id}/updatePassword` %>>Update Password</a>
+  <a href=<%= `/auth/${user._id}/updatePassword` %> class="view-btn">Update Password</a>
 </div>
 
-<h3>Reviews:</h3>
+<h3>Reviews</h3>
 
+<div class="container">
   <% user.reviews.forEach(review => { %>
-    <div><a href="/review/<%= review._id %>"><%= review.title %></a></div>
+    <a href="/review/<%= review._id %>"> <div class="review-card"><%= review.title %></div></a>
   <% }) %>
-
+</div>
 
 <%- include ("../partials/footer.ejs")%>
