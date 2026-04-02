@@ -3,10 +3,18 @@
 <h2>Edit Review</h2>
 
 <form action="/review/<%= review._id %>?_method=PUT" method="POST">
-  <input type="text" name="title" placeholder="Title" value="<%= review.title %>" required />
-  <textarea name="paragraph" placeholder="Description" required><%= review.paragraph %></textarea>
-  <input type="number" name="rating" placeholder="Rating" value="<%= review.rating %>" required />
-  <select name="phone">
+
+  <label for="title" class="form-label">Title</label>
+  <input type="text" name="title" placeholder="Title" value="<%= review.title %>" class="form-input" id="title" required />
+
+  <label for="paragraph" class="form-label">Review</label>
+  <textarea name="paragraph" placeholder="Description" class="form-input" style="height: 40px; border-radius: 5px; padding: 3px;" id="paragraph" required><%= review.paragraph %></textarea>
+
+  <label for="rating" class="form-label">Rating out of 5</label>
+  <input type="number" name="rating" placeholder="Rating" value="<%= review.rating %>" class="form-input" id="rating" min="0" max="5"  required />
+
+  <label for="phone" class="form-label">Phone</label>
+  <select name="phone" class="form-input" style="height: 40px; border-radius: 5px; padding: 3px;" id="phone" required>
 <% phones.forEach(phone => { %>
   <% if (phone._id.toString() === review.phone._id.toString()) { %>
 <option value="<%= phone._id %>" selected><%= phone.name %></option>
@@ -15,6 +23,6 @@
     <% } %>
 <% }) %>
 </select>
-  <button type="submit">Edit</button>
+  <button type="submit" class="form-btn">Edit</button>
 </form>
 <%- include ("../partials/footer.ejs")%>

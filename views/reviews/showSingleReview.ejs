@@ -1,19 +1,61 @@
 <%- include ("../partials/header.ejs") %>
 
 <h2><%= review.title %></h2>
-<p><%= phone.name %>, <%= phone.brand %>, <%= phone.screenSize %>, <%= phone.batterySize %>, <%= phone.cpu %>, <%= phone.memory %>, <%= phone.storage %></p>
-<p><%= review.paragraph %></p>
-<p><%= review.rating %></p>
-<p><%= review.reviewer.username %></p>
+<h2>Reviewed by: [<%= review.reviewer.username %>] <%= review.reviewer.firstName %> <%= review.reviewer.lastName %></h2>
+
+<div class="specs">
+  <div class="spec">
+    <h3 class ="specs-h3">Phone name</h3>
+    <p><%= phone.name %></p>
+  </div>
+
+  <div class="spec">
+    <h3 class ="specs-h3">Phone brand</h3>
+    <p><%= phone.brand %></p>
+  </div>
+  <div class="spec">
+    <h3 class ="specs-h3">Screen size</h3>
+    <p><%= phone.screenSize %></p>
+  </div>
+
+  <div class="spec">
+    <h3 class ="specs-h3">Battery size</h3>
+    <p><%= phone.batterySize %></p>
+  </div>
+
+  <div class="spec">
+    <h3 class ="specs-h3">CPU</h3>
+    <p><%= phone.cpu %></p>
+  </div>
+
+  <div class="spec">
+    <h3 class ="specs-h3">Memory</h3>
+    <p><%= phone.memory %></p>
+  </div>
+
+  <div class="spec">
+    <h3 class ="specs-h3">Storage</h3>
+    <p><%= phone.storage %></p>
+  </div>
+</div>
+
+<hr>
+
+<div class="review">
+  <h3>Review</h3>
+  <p><%= review.paragraph %></p>
+  <h4>Rating</h4>
+  <p><%= review.rating %> out of 5</p>
+</div>
 
 <% if (user._id === review.reviewer._id.toString()) { %>
 
 <form action="/review/<%= review._id %>/edit">
-  <button>Edit</button>
+  <button class="form-btn" id="edit">Edit</button>
 </form>
 
 <form action="/review/<%= review._id %>?_method=DELETE" method="POST">
-  <button type="submit">Delete</button>
+  <button type="submit" class="form-btn" id="delete">Delete</button>
 </form>
 
 <% } %>
