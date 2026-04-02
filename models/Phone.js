@@ -7,8 +7,8 @@ const phoneSchema = new mongoose.Schema(
     screenSize: { type: Number, required: true },
     batterySize: { type: Number, required: true },
     cpu: { type: String, required: true },
-    memory: { type: Number, required: false },
-    storage: { type: Number, required: true },
+    memory: { type: String, required: true },
+    storage: { type: String, required: true },
   },
   {
     timestamps: true,
